@@ -9,7 +9,7 @@ require 'active_model/railtie'
 require 'active_record/railtie'
 # require "active_storage/engine"
 require 'action_controller/railtie'
-# require "action_mailer/railtie"
+require 'action_mailer/railtie'
 # require "action_mailbox/engine"
 # require "action_text/engine"
 require 'action_view/railtie'
@@ -43,6 +43,9 @@ module App
     config.time_zone = 'Tokyo'
 
     config.autoload_paths << Rails.root.join('lib')
+
+    config.action_mailer.default_url_options = { host: ENV.fetch('APP_DEFAULT_URL_HOST', nil),
+                                                 port: ENV.fetch('APP_DEFAULT_URL_PORT', nil) }
 
     Rails.application.routes.default_url_options[:host] = AppConfig.default_url_host
     Rails.application.routes.default_url_options[:port] = AppConfig.default_url_port
