@@ -7,6 +7,7 @@ ruby '3.2.2'
 gem "rails", "~> 7.0.5"
 
 gem 'anyway_config', '~> 2.0'
+gem 'image_processing', '~> 1.2'
 gem 'devise', '~> 4.9'
 gem 'mysql2', '~> 0.5'
 gem 'puma', '~> 5.0'

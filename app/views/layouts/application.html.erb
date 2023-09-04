@@ -56,15 +56,14 @@
                 </svg>
                 <span class="hidden font-bold xl:inline">ホーム</span>
               <% end %>
-              <a class="flex items-center w-full gap-4 p-3 transition rounded group hover:bg-gray-100 active:opacity-60"
-                href="">
+              <%= link_to new_post_path, class: "flex items-center w-full gap-4 p-3 transition rounded group hover:bg-gray-100 active:opacity-60" do %>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                   stroke="currentColor" class="transition w-7 h-7 group-hover:scale-105 group-active:scale-100">>
                   <path stroke-linecap="round" stroke-linejoin="round"
                     d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span class="hidden font-bold xl:inline">作成</span>
-              </a>
+              <% end %>
               <%= link_to profile_path, class: "flex items-center w-full gap-4 p-3 transition rounded group hover:bg-gray-100 active:opacity-60" do %>
                 <%= image_tag 'user.jpg', class: 'transition rounded-full w-7 h-7 group-hover:scale-105 group-active:scale-100' %>
                 <span class="hidden font-bold xl:inline">プロフィール</span>
