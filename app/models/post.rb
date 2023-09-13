@@ -25,6 +25,6 @@ class Post < ApplicationRecord
   has_one_attached :image
 
   def liked?(current_user)
-    likes.where(user: current_user).exists?
+    likes.exists?(user: current_user)
   end
 end
