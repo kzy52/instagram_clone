@@ -9,9 +9,10 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show]
 
-  resources :posts, only: %i[new create] do
+  resources :posts, only: %i[new show create] do
     scope module: :posts do
       resource :likes, only: %i[create destroy]
+      resources :comments, only: %i[create]
     end
   end
 
