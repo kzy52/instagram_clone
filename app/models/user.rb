@@ -21,11 +21,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :posts, dependent: :destroy
+
   has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
 
   has_many :followings, through: :relationships, source: :follow
   has_many :followers, through: :reverse_of_relationships, source: :follower
+
+  has_one_attached :avatar
 
   def follow(user_id)
     relationships.create(follow_id: user_id)

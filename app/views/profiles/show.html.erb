@@ -1,7 +1,7 @@
 <div class="container max-w-[935px] mx-auto pt-12">
   <div class="grid grid-cols-[auto_1fr] items-start gap-7 px-4">
     <div class="md:p-7 py-7 md:row-span-2">
-      <%= image_tag 'user.jpg', class: 'object-cover object-center w-16 h-16 rounded-full md:w-36 md:h-36' %>
+      <%= image_tag current_user.avatar, class: 'object-cover object-center w-16 h-16 rounded-full md:w-36 md:h-36' %>
     </div>
     <div class="grid grid-cols-[auto_1fr] w-fit gap-2 md:grid-cols-[auto_auto_auto_auto] items-center">
       <p class="text-lg"><%= current_user.nickname %></p>
@@ -13,14 +13,12 @@
         </svg>
       </button>
       <%= link_to 'プロフィールを編集', edit_user_registration_path, class: "col-span-2 px-4 py-2 text-sm font-bold leading-none text-center bg-gray-200 rounded-md md:col-span-1 w-60 md:w-fit" %>
-      <button
-        class="col-span-2 px-4 py-2 text-sm font-bold leading-none text-center bg-gray-200 rounded-md md:col-span-1 w-60 md:w-fit">広告ツール</button>
     </div>
     <div class="col-span-2 md:col-span-1 md:col-start-2">
       <div class="hidden gap-10 md:flex">
-        <p>投稿<strong>173</strong>件</p>
-        <p>フォロワー<strong>227</strong>人</p>
-        <p>フォロー中<strong>287</strong>人</p>
+        <p>投稿<strong><%= current_user.posts.count %></strong>件</p>
+        <p>フォロワー<strong><%= current_user.followers.count %></strong>人</p>
+        <p>フォロー中<strong><%= current_user.followings.count %></strong>人</p>
       </div>
       <p class="text-sm font-bold md:mt-4">HOGEHOGE</p>
       <p class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea explicabo deleniti

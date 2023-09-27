@@ -64,9 +64,11 @@
                 </svg>
                 <span class="hidden font-bold xl:inline">作成</span>
               <% end %>
-              <%= link_to profile_path, class: "flex items-center w-full gap-4 p-3 transition rounded group hover:bg-gray-100 active:opacity-60" do %>
-                <%= image_tag 'user.jpg', class: 'transition rounded-full w-7 h-7 group-hover:scale-105 group-active:scale-100' %>
-                <span class="hidden font-bold xl:inline">プロフィール</span>
+              <% if current_user %>
+                <%= link_to profile_path, class: "flex items-center w-full gap-4 p-3 transition rounded group hover:bg-gray-100 active:opacity-60" do %>
+                  <%= image_tag current_user.avatar, class: 'transition rounded-full w-7 h-7 group-hover:scale-105 group-active:scale-100' %>
+                  <span class="hidden font-bold xl:inline">プロフィール</span>
+                <% end %>
               <% end %>
             </div>
             <a class="flex items-center w-full gap-4 p-3 transition rounded group hover:bg-gray-100 active:opacity-60"
